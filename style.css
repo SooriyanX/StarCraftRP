@@ -116,7 +116,7 @@ animation:crawl 12s linear forwards;
     opacity: 1;
   }
   100% {
-    transform: translate(var(--x), var(--y)) scale(3);
+    transform: translate(var(--x), var(--y)) scale(5);
     opacity: 0;
   }
 }
@@ -145,6 +145,7 @@ width:100%;
 /* THEMES */
 .jedi{background:linear-gradient(black,#001f3f);}
 .sith{background:linear-gradient(black,#330000);}
+
 
 
 
