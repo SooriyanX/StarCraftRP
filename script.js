@@ -44,9 +44,23 @@ setTimeout(()=>{
 
 
 /* SCREEN SHAKE */
-const style=document.createElement('style')
-style.innerHTML=`@keyframes warp{from{transform:translateY(-100px)}to{transform:translateY(100vh)}}@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-5px)}100%{transform:translateX(0)}}`
-document.head.appendChild(style)
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes warp {
+    0% { transform: translateY(-200px) scaleY(0.5); opacity: 1; }
+    100% { transform: translateY(120vh) scaleY(1.5); opacity: 0; }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}
+`;
+document.head.appendChild(style);
+
 
 /* THEME SWITCH */
 let side="jedi"
@@ -79,5 +93,6 @@ document.getElementById("trailerModal").style.display="flex"
 function closeTrailer(){
 document.getElementById("trailerModal").style.display="none"
 }
+
 
 
