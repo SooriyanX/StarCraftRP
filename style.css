@@ -11,27 +11,42 @@ transition:background 1s, color 1s;
 nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
 display:flex;
 justify-content:space-between;
-padding:15px 40px;
+align-items:center;
+padding:15px 20px;
 background:rgba(0,0,0,0.7);
 backdrop-filter:blur(10px);
 z-index:1000;
+box-sizing:border-box;
+}
+
+nav .logo{
+font-size:1.2rem;
+white-space:nowrap;
+}
+
+nav div{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:flex-end;
 }
 
 nav button{
-margin-left:10px;
-padding:10px 20px;
+padding:8px 14px;
 background:transparent;
 border:1px solid cyan;
 color:white;
 cursor:pointer;
 transition:0.3s;
+font-size:0.85rem;
 }
 
 nav button:hover{
-box-shadow:0 0 15px cyan;
+box-shadow:0 0 12px cyan;
 }
 
 /* HERO */
@@ -102,4 +117,5 @@ width:100%;
 /* THEMES */
 .jedi{background:linear-gradient(black,#001f3f);}
 .sith{background:linear-gradient(black,#330000);}
+
 
