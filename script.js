@@ -25,7 +25,7 @@ function enterGalaxy() {
     const angle = Math.random() * Math.PI * 2;
 
     // Random distance to travel
-    const distance = Math.random() * 3000 + 1000;
+    const distance = Math.random() * 1500 + 500;
 
     // Set CSS variable for animation
     star.style.setProperty("--x", Math.cos(angle) * distance + "px");
@@ -103,6 +103,7 @@ document.getElementById("trailerModal").style.display="flex"
 function closeTrailer(){
 document.getElementById("trailerModal").style.display="none"
 }
+
 
 
 
