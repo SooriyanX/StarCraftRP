@@ -1,5 +1,12 @@
 /* INTRO AUTO REMOVE */
-setTimeout(()=>{document.getElementById("intro").style.display="none"},12000)
+window.addEventListener("load", function(){
+    setTimeout(function(){
+        const intro = document.getElementById("intro");
+        if(intro){
+            intro.style.display = "none";
+        }
+    }, 6000); // shorter for testing
+});
 function skipIntro(){document.getElementById("intro").style.display="none"}
 
 /* HYPERSPACE CINEMATIC */
@@ -62,3 +69,4 @@ document.getElementById("trailerModal").style.display="flex"
 function closeTrailer(){
 document.getElementById("trailerModal").style.display="none"
 }
+
