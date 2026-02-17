@@ -11,27 +11,37 @@ function skipIntro(){document.getElementById("intro").style.display="none"}
 
 /* HYPERSPACE CINEMATIC */
 function enterGalaxy(){
-let hyper=document.getElementById("hyperspace")
-hyper.style.display="block"
-hyper.innerHTML=""
 
-for(let i=0;i<200;i++){
-let star=document.createElement("div")
-star.style.position="absolute"
-star.style.width="2px"
-star.style.height="100px"
-star.style.background="white"
-star.style.left=Math.random()*100+"%"
-star.style.animation="warp 0.3s linear infinite"
-hyper.appendChild(star)
+const hyper = document.getElementById("hyperspace");
+hyper.style.display = "block";
+hyper.innerHTML = "";
+
+for(let i=0;i<300;i++){
+    let star = document.createElement("div");
+
+    const size = Math.random()*3 + 1;
+    const duration = Math.random()*0.8 + 0.3;
+
+    star.style.position = "absolute";
+    star.style.width = size + "px";
+    star.style.height = size * 40 + "px";
+    star.style.background = "white";
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = "-200px";
+    star.style.opacity = Math.random();
+    star.style.animation = `warp ${duration}s linear forwards`;
+
+    hyper.appendChild(star);
 }
 
-document.body.style.animation="shake 0.5s"
+document.body.style.animation = "shake 0.4s";
+
 setTimeout(()=>{
-hyper.style.display="none"
-document.body.style.animation=""
-},2000)
+    hyper.style.display = "none";
+    document.body.style.animation = "";
+},1500);
 }
+
 
 /* SCREEN SHAKE */
 const style=document.createElement('style')
@@ -69,4 +79,5 @@ document.getElementById("trailerModal").style.display="flex"
 function closeTrailer(){
 document.getElementById("trailerModal").style.display="none"
 }
+
 
