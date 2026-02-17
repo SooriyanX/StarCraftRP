@@ -10,37 +10,47 @@ window.addEventListener("load", function(){
 function skipIntro(){document.getElementById("intro").style.display="none"}
 
 /* HYPERSPACE CINEMATIC */
-function enterGalaxy(){
+function enterGalaxy() {
+  const hyper = document.getElementById("hyperspace");
+  hyper.style.display = "block";
+  hyper.innerHTML = "";
 
-const hyper = document.getElementById("hyperspace");
-hyper.style.display = "block";
-hyper.innerHTML = "";
+  const numStars = 300;
 
-for(let i=0;i<300;i++){
-    let star = document.createElement("div");
+  for (let i = 0; i < numStars; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
 
-    const size = Math.random()*3 + 1;
-    const duration = Math.random()*0.8 + 0.3;
+    // Random angle in radians
+    const angle = Math.random() * Math.PI * 2;
 
-    star.style.position = "absolute";
-    star.style.width = size + "px";
-    star.style.height = size * 40 + "px";
-    star.style.background = "white";
-    star.style.left = Math.random()*100 + "%";
-    star.style.top = "-200px";
-    star.style.opacity = Math.random();
-    star.style.animation = `warp ${duration}s linear forwards`;
+    // Random distance to travel
+    const distance = Math.random() * 1500 + 500;
+
+    // Set CSS variable for animation
+    star.style.setProperty("--x", Math.cos(angle) * distance + "px");
+    star.style.setProperty("--y", Math.sin(angle) * distance + "px");
+
+    // Random animation duration
+    star.style.animationDuration = (Math.random() * 1 + 0.5) + "s";
 
     hyper.appendChild(star);
-}
+  }
 
-document.body.style.animation = "shake 0.4s";
+  // Optional screen shake
+  document.body.style.animation = "shake 0.3s";
 
-setTimeout(()=>{
+  setTimeout(() => {
     hyper.style.display = "none";
     document.body.style.animation = "";
-},1500);
+  }, 1500);
+
+  // Optional warp sound
+  let sound = new Audio("assets/warp.mp3");
+  sound.volume = 0.6;
+  sound.play();
 }
+
 
 
 /* SCREEN SHAKE */
@@ -93,6 +103,7 @@ document.getElementById("trailerModal").style.display="flex"
 function closeTrailer(){
 document.getElementById("trailerModal").style.display="none"
 }
+
 
 
 
