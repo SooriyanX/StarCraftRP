@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StarCraft RP | Minecraft Java 1.21.11</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+<!-- Opening Crawl -->
+<div id="crawl">
+  <div class="crawl-text">
+    <h1>STARCRAFT RP</h1>
+    <p>
+    The galaxy has entered Minecraft Java 1.21.11.
+    Lightsabers ignite. Blasters charge.
+    Villagers become droids.
+    The Force flows through every block.
+    </p>
+  </div>
+</div>
+
+<!-- Trailer Background -->
+<video autoplay muted loop id="bgVideo">
+  <source src="assets/trailer.mp4" type="video/mp4">
+</video>
+
+<!-- Faction Selector -->
+<div class="factions">
+  <button onclick="setFaction('jedi')">Jedi Mode</button>
+  <button onclick="setFaction('sith')">Sith Mode</button>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <img src="assets/logo.png" class="logo">
+  <h1>StarCraft RP</h1>
+  <p>Minecraft Java 1.21.11</p>
+  <button onclick="ignite()">Ignite Lightsaber</button>
+  <button onclick="download()">Download</button>
+</section>
+
+<!-- 3D Viewer -->
+<section>
+  <h2>Interactive 3D Block Viewer</h2>
+  <div id="viewer"></div>
+</section>
+
+<!-- Before/After -->
+<section>
+  <h2>World Transformation</h2>
+  <div class="compare">
+    <img src="assets/before.jpg">
+    <img src="assets/after.jpg" class="after">
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+  <div>Downloads: <span id="downloads">0</span></div>
+  <div>Online Players: <span id="players">0</span></div>
+</section>
+
+<!-- Version History -->
+<section>
+<h2>Version History</h2>
+<ul>
+  <li>v1.0 – Full Star Wars conversion</li>
+  <li>v1.1 – New armor textures</li>
+  <li>v1.2 – Updated for 1.21.11</li>
+</ul>
+</section>
+
+<footer>
+© 2026 StarCraft RP | Not affiliated with Mojang or Lucasfilm
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
