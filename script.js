@@ -52,3 +52,59 @@ cube.rotation.y+=0.01
 renderer.render(scene,camera)
 }
 animate()
+
+/* ================= HYPERSPACE ================= */
+function enterGalaxy(){
+let hyper=document.getElementById("hyperspace")
+hyper.style.display="block"
+hyper.innerHTML=""
+
+for(let i=0;i<120;i++){
+let star=document.createElement("div")
+star.className="star"
+star.style.left=Math.random()*100+"%"
+star.style.animationDuration=(Math.random()*0.4+0.2)+"s"
+hyper.appendChild(star)
+}
+
+setTimeout(()=>{
+hyper.style.display="none"
+document.querySelector(".hero").scrollIntoView({behavior:"smooth"})
+},1500)
+}
+
+/* ================= LIGHT/DARK MODE ================= */
+let currentSide="jedi"
+
+function toggleTheme(){
+document.body.classList.remove("jedi","sith")
+
+if(currentSide==="jedi"){
+document.body.classList.add("sith")
+currentSide="sith"
+}else{
+document.body.classList.add("jedi")
+currentSide="jedi"
+}
+}
+
+/* ================= LIGHTSABER CURSOR TRAIL ================= */
+document.addEventListener("mousemove",function(e){
+let trail=document.createElement("div")
+trail.style.position="fixed"
+trail.style.width="4px"
+trail.style.height="25px"
+trail.style.background=currentSide==="jedi"?"cyan":"red"
+trail.style.left=e.pageX+"px"
+trail.style.top=e.pageY+"px"
+trail.style.pointerEvents="none"
+trail.style.boxShadow="0 0 10px "+(currentSide==="jedi"?"cyan":"red")
+trail.style.borderRadius="2px"
+trail.style.zIndex="10000"
+
+document.body.appendChild(trail)
+
+setTimeout(()=>{
+trail.remove()
+},150)
+})
